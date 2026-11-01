@@ -2,7 +2,7 @@ import { checkApiLimit } from "@/lib/api-limit";
 import { NextResponse } from "next/server";
 
 const SYSTEM_INSTRUCTION = {
-  role: "user", // Gemini does not support "system", so use "user" instead.
+  role: "system",
   parts: [
     { text: "You are an AI chatbot. Assist the user with their questions." },
   ],
