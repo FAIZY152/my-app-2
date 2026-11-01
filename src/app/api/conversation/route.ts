@@ -11,7 +11,8 @@ const SYSTEM_INSTRUCTION = {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { messages, userId } = body;
+    const  { userId , messages  } = body;
+    
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json(
