@@ -3,7 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.text(); // Read raw text to check if it's empty
+    const body = await request.text();
     if (!body) {
       return NextResponse.json(
         { error: "Request body is empty" },
@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { prompt, userId } = JSON.parse(body); // ✅ Extract userId
+    const { prompt, userId } = JSON.parse(body); 
     if (!userId) {
       return NextResponse.json(
         { error: "User ID is required" },
@@ -40,7 +40,6 @@ export async function POST(request: NextRequest) {
     await fetch(imageUrl);
     return NextResponse.json({ url: imageUrl });
   } catch (error) {
-    console.error(error);
     return NextResponse.json({ error: "Invalid JSON input" }, { status: 400 });
   }
 }
